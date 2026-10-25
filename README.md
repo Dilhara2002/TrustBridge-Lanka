@@ -24,6 +24,10 @@ npm run build
 
 Static export is generated in `out/`. `npm start` is not used for static hosting; preview the export with `python3 -m http.server 3000 --directory out`. Next.js dev is used during development.
 
+## Cloudflare Pages (static export)
+
+Create a **Pages** project, not a Worker. Use framework **Next.js Static HTML Export**, production branch **main**, build command `npm run build`, and output directory `out`. Leave the root directory at the repository root. Set `NEXT_PUBLIC_SITE_URL` to the actual production HTTPS URL before building to enable indexing, canonical/hreflang tags and the sitemap. Do not use `npx wrangler deploy`, OpenNext, or a Worker deploy command. If the existing Cloudflare project is a Worker, create a Pages project instead. No deployment was performed.
+
 ## Deployment later
 
 Nothing has been deployed. For Vercel, import the repository, use Next.js, set the production URL environment variable, and build with `npm run build`. For other static hosting, upload the contents of `out/`, serve directory index files, and use `404.html` for unknown routes. No SPA catch-all rewrite is needed. Serve over HTTPS. Set immutable caching for `/_next/static/`; use revalidation for HTML.
