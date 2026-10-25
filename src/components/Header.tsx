@@ -1,0 +1,10 @@
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { business, pages, type Locale } from '@/config/business';
+import { dictionaries } from '@/content/dictionaries';
+export function Brand({logo=false}:{logo?:boolean}){return <span className="brand">{logo&&<Image src="/brand/trustbridge-logo.png" alt="" width="56" height="56"/>}<span>TrustBridge<span className="brand-lanka">L A N K A</span></span></span>;}
+export function Header({locale,logo}:{locale:Locale;logo:boolean}){const t=dictionaries[locale];const pathname=usePathname();const [open,setOpen]=useState(false);const other=locale==='en'?'si':'en';const languagePath=pathname.replace(/^\/(en|si)/,`/${other}`);return <><a className="skip" href="#main">{t.skip}</a><header className="header"><Link href={`/${locale}/`} aria-label={business.name} onClick={()=>setOpen(false)}><Brand logo={logo}/></Link><nav aria-label={locale==='en'?'Main navigation':'ප්‍රධාන මෙනුව'} className="desktop-nav">{[0,1,2,3,4,5,8].map(i=><Link key={i} href={`/${locale}/${pages[i]}/`.replace('//','/')} aria-current={pathname.replace(/\/$/,'')===`/${locale}${pages[i]?'/'+pages[i]:''}`?'page':undefined}>{t.nav[i]}</Link>)}</nav><div className="header-actions"><a className="language" href={languagePath} hrefLang={other} lang={other}>{other==='si'?'සිංහල':'English'}</a><Link className="button navy desktop-quote" href={`/${locale}/quote/`}>{t.nav[6]}<ArrowUpRight size={16}/></Link><button className="menu-toggle" aria-label={open?t.close:t.menu} aria-expanded={open} aria-controls="mobile-nav" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></div>{open&&<nav id="mobile-nav" className="mobile-nav" aria-label={t.menu}>{[0,1,2,3,4,5,6,7,8].map(i=><Link key={i} href={`/${locale}/${pages[i]}/`.replace('//','/')} onClick={()=>setOpen(false)}>{t.nav[i]}</Link>)}<a className="button gold" href={business.whatsapp}>{t.chat}</a></nav>}</header></>;}
