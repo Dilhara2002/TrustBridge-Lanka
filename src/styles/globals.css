@@ -85,3 +85,192 @@ html[lang=si] .eyebrow{letter-spacing:.025em}
 @media(min-width:761px){.package-grid{grid-auto-rows:1fr}}
 
 .founder-portrait{width:100%;max-width:360px;height:auto;justify-self:center;border-radius:4px}
+
+
+/* TRUSTBRIDGE HOW PAGE DESIGN START */
+
+/* Premium page heading */
+.how-heading {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    115deg,
+    #f6f3ec 0%,
+    #faf8f3 65%,
+    #fff8e9 100%
+  );
+}
+
+.how-heading::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 16%;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(212,175,55,.28);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 24px rgba(212,175,55,.035),
+    0 0 0 50px rgba(212,175,55,.025);
+  pointer-events: none;
+}
+
+.how-heading > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Wider balanced section */
+.how-steps-section {
+  max-width: none;
+  margin: 0;
+  padding-top: 70px;
+  padding-bottom: 95px;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fafc 100%
+  );
+}
+
+/* Two-column steps grid */
+.how-steps-section .steps {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Premium step cards */
+.how-steps-section .steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  min-width: 0;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e3e7eb;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(8,35,70,.055);
+  transition: transform .2s, border-color .2s;
+}
+
+.how-steps-section .steps li:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212,175,55,.65);
+}
+
+/* Number badges */
+.how-steps-section .steps li > span {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border: 1px solid rgba(212,175,55,.5);
+  border-radius: 50%;
+  background: #fbf7e9;
+  color: #927022;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Card content */
+.how-steps-section .steps li > div {
+  min-width: 0;
+}
+
+.how-steps-section .steps h3 {
+  font-size: clamp(1.2rem,2vw,1.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: #082346;
+}
+
+.how-steps-section .steps p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #566273;
+}
+
+/* Final step highlight */
+.how-steps-section .steps li:last-child {
+  grid-column: 1 / -1;
+  justify-content: center;
+  background: #f8f5ec;
+  border-color: #e7d9b6;
+}
+
+.how-steps-section .steps li:last-child > div {
+  max-width: 760px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .how-heading::after {
+    display: none;
+  }
+
+  .how-steps-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .how-steps-section .steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .how-steps-section .steps li {
+    padding: 22px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+
+  .how-steps-section .steps li > span {
+    width: 46px;
+    height: 46px;
+    font-size: 15px;
+  }
+
+  .how-steps-section .steps h3 {
+    font-size: 1.2rem;
+  }
+
+  .how-steps-section .steps li:last-child {
+    grid-column: auto;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  .how-steps-section .steps li {
+    padding: 18px;
+    gap: 12px;
+  }
+}
+
+/* TRUSTBRIDGE HOW PAGE DESIGN END */
+
+
+/* TRUSTBRIDGE NAV FONT START */
+
+/* English navigation */
+.desktop-nav {
+  font-size: 12px;
+}
+
+/* Sinhala navigation */
+html[lang="si"] .desktop-nav {
+  font-size: 11px;
+}
+
+/* TRUSTBRIDGE NAV FONT END */
+
+
+/* Faded emblem behind the footer introduction, with readable foreground copy. */
+.footer-brand-panel{position:relative;isolation:isolate;min-height:240px;display:flex;flex-direction:column;justify-content:center}
+.footer-background-emblem{position:absolute;z-index:-1;pointer-events:none;inset:50% auto auto 0;transform:translateY(-50%);width:320px;max-width:100%;height:auto;opacity:.16;mask-image:radial-gradient(ellipse at center,#000 32%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,#000 32%,transparent 70%)}
+.footer-grid>.footer-brand-panel p{position:relative;color:#e5ecf3}
+.footer-grid>.footer-brand-panel p:first-of-type{margin-top:0}
